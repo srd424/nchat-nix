@@ -11,7 +11,7 @@
   cmake,
   gperf,
   stdenv,
-  darwin
+  darwin,
 }:
 
 # approach to building the go component(s) stolen from
@@ -23,7 +23,7 @@ let
   src = fetchFromGitHub {
     owner = "d99kris";
     repo = "nchat";
-    rev = "refs/tags/v${version}";
+    tag = "v${version}";
     hash = "sha256-NrAU47GA7ZASJ7vCo1S8nyGBpfsZn4EBBqx2c4HKx7k=";
   };
 
@@ -33,7 +33,6 @@ let
 
     inherit src;
     sourceRoot = "source/lib/wmchat/go";
-#    vendorHash = "sha256-Oh3FXk44zW/o00bT6fTeUzjEx+sM3U644W8yInX+Pb4=";
     vendorHash = "sha256-EdbOO5cCDT1CcPlCBgMoPDg65FcoOYvBwZa4bz0hfGE=";
 
     buildPhase = ''
